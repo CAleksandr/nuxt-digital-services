@@ -4,7 +4,7 @@ import withNuxt from './.nuxt/eslint.config.mjs'
 export default withNuxt(
   {
     rules: {
-      'vue/multi-word-component-names': 'off' // Отключаем правило полностью для всех файлов
+      'vue/multi-word-component-names': 'off'
     }
   }
 )

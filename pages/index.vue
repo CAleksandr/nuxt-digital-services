@@ -1,28 +1,23 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
-// Заглушка для популярных товаров (потом заменим на API)
-const popularProducts = ref([
-  { id: 1, title: 'Товар 1', price: 29.99, thumbnail: 'https://via.placeholder.com/150' },
-  { id: 2, title: 'Товар 2', price: 49.99, thumbnail: 'https://via.placeholder.com/150' },
-  { id: 3, title: 'Товар 3', price: 19.99, thumbnail: 'https://via.placeholder.com/150' },
-])
+const { data, pending, error } = await useFetch('https://dummyjson.com/products?limit=6')
 </script>
 
 <template>
   <div class="container">
     <header>
-      <h1>X DIGIT Marketplace</h1>
-      <p>Ваш надёжный маркетплейс услуг и оборудования для индустрии развлечений.</p>
+      <h1>FunZone Marketplace</h1>
+      <p>Your reliable marketplace for entertainment industry services and equipment.</p>
     </header>
     <section>
-      <h2>Популярные товары</h2>
-      <div class="grid">
-        <div v-for="product in popularProducts" :key="product.id" class="product-card">
+      <h2>Popular Products</h2>
+      <div v-if="pending">Loading...</div>
+      <div v-else-if="error">Error: {{ error.message }}</div>
+      <div v-else class="grid">
+        <div v-for="product in data?.products" :key="product.id" class="product-card">
           <img :src="product.thumbnail" :alt="product.title" />
           <h3>{{ product.title }}</h3>
-          <p>Цена: ${{ product.price }}</p>
-          <button>В корзину</button>
+          <p>Price: ${{ product.price }}</p>
+          <button>Add to Cart</button>
         </div>
       </div>
     </section>
@@ -74,8 +69,9 @@ p {
 
 .product-card img {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
+  max-height: 150px;
+  object-fit: contain; /* Изображение целиком, без обрезки */
+  aspect-ratio: 1/1; /* Квадратный контейнер */
   border-radius: 4px;
 }
 
