@@ -6,7 +6,9 @@ defineProps<{
 
 <template>
   <div class="product-card">
-    <img :src="product.thumbnail" :alt="product.title" />
+    <NuxtLink :to="`/products/${product.id}`">
+      <img :src="product.thumbnail" :alt="product.title" />
+    </NuxtLink>
     <h3>{{ product.title }}</h3>
     <p>Price: ${{ product.price }}</p>
     <button>Add to Cart</button>
