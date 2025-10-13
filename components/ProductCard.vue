@@ -7,7 +7,7 @@ defineProps<{
 <template>
   <div class="product-card">
     <NuxtLink :to="`/products/${product.id}`">
-      <img :src="product.thumbnail" :alt="product.title" />
+      <img :src="product.thumbnail" :alt="product.title" >
     </NuxtLink>
     <h3>{{ product.title }}</h3>
     <p>Price: ${{ product.price }}</p>

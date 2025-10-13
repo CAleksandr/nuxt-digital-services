@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const { data, pending, error } = await useFetch('https://dummyjson.com/products?limit=6')
+import type { ResponseCard } from '~/interfaces/interfaces'
+const { data, pending, error } = await useFetch<ResponseCard>('https://dummyjson.com/products?limit=6')
 </script>
 
 <template>
