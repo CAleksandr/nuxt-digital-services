@@ -7,4 +7,7 @@ export interface Product {
 
 export interface ResponseCard {
   products: Product[]
+  total: number
+  skip?: number
+  limit?: number
 }

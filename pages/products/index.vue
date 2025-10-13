@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import ProductCard from '~/components/ProductCard.vue'
+import type { ResponseCard } from '~/interfaces/interfaces'
 
 const page = ref(1) // Текущая страница
 const limit = 10 // Товаров на страницу
@@ -10,7 +11,7 @@ const skip = computed(() => (page.value - 1) * limit) // Вычисляем см
 const totalPages = computed(() => Math.ceil(totalProducts.value / limit)) // Общее количество страниц
 
 // Загружаем товары с API
-const { data, pending, error } = await useFetch('https://dummyjson.com/products', {
+const { data, pending, error } = await useFetch<ResponseCard>('https://dummyjson.com/products', {
   query: { limit, skip }
 })
 
