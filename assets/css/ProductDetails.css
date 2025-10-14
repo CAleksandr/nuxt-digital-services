@@ -1,0 +1,121 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.product-details {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.carousel {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.product-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+  border-radius: 8px;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.carousel-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+.carousel-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.description {
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+button:not(.carousel-button) {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+button:not(.carousel-button):hover {
+  background-color: #0056b3;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .product-image {
+    max-height: 200px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .carousel-button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
