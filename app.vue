@@ -1,4 +1,10 @@
 <!-- app.vue -->
+<script setup lang="ts">
+import { useCart } from '~/interfaces/interfaces'
+useCart() // Инициализация корзины
+console.log('Cart initialized in app.vue')
+</script>
+
 <template>
   <NuxtPage />
 </template>

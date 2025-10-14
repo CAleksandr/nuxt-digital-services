@@ -12,3 +12,13 @@ export interface ResponseCard {
   skip?: number
   limit?: number
 }
+
+export interface CartItem {
+  id: number
+  title: string
+  price: number
+  thumbnail: string
+  quantity: number
+}
+
+export { useCart } from '~/composables/useCart'

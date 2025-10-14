@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ResponseCard } from '~/interfaces/interfaces'
+
 const { data, pending, error } = await useFetch<ResponseCard>('https://dummyjson.com/products?limit=6')
 </script>
 
@@ -8,6 +9,8 @@ const { data, pending, error } = await useFetch<ResponseCard>('https://dummyjson
     <header>
       <h1>FunZone Marketplace</h1>
       <p>Your reliable marketplace for entertainment industry services and equipment.</p>
+      <NuxtLink to="/products">Catalog</NuxtLink>
+      <NuxtLink to="/cart">Cart</NuxtLink>
     </header>
     <section>
       <h2>Popular Products</h2>

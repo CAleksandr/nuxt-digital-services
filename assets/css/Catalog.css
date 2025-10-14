@@ -63,6 +63,18 @@ p {
   background-color: #0056b3;
 }
 
+a {
+  display: inline-block;
+  margin: 16px 8px 0;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
   .grid {

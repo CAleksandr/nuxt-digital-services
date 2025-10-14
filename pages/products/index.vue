@@ -34,6 +34,8 @@ const goToPage = (newPage: number) => {
     <header>
       <h1>FunZone Marketplace - Catalog</h1>
       <p>Browse our full range of entertainment industry products.</p>
+      <NuxtLink to="/">Home</NuxtLink>
+      <NuxtLink to="/cart">Cart</NuxtLink>
     </header>
     <section>
       <h2>All Products</h2>
