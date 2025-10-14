@@ -4,7 +4,6 @@ export interface Product {
   price: number
   thumbnail: string
   description: string
-  images: string[]
 }
 
 export interface ResponseCard {
