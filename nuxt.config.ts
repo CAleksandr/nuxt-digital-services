@@ -4,5 +4,5 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/icon', '@nuxt/image', '@pinia/nuxt', '@nuxt/eslint']
+  modules: ['@nuxt/icon', '@nuxt/image', '@nuxt/eslint']
 })

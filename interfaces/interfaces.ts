@@ -3,6 +3,8 @@ export interface Product {
   title: string
   price: number
   thumbnail: string
+  description: string
+  images: string[]
 }
 
 export interface ResponseCard {

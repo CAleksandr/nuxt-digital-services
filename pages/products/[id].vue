@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
+import type { Product } from '~/interfaces/interfaces'
 
 const route = useRoute()
 const productId = route.params.id // Получаем ID из URL
 
 // Загружаем данные о товаре
-const { data, pending, error } = await useFetch(`https://dummyjson.com/products/${productId}`)
+const { data, pending, error } = await useFetch<Product>(`https://dummyjson.com/products/${productId}`)
 
 // Реактивная переменная для текущего изображения в карусели
 const currentImageIndex = ref(0)
@@ -36,16 +37,16 @@ const prevImage = () => {
       <div v-else class="product-details">
         <h2>{{ data?.title }}</h2>
         <div class="carousel">
-          <button :disabled="currentImageIndex === 0" @click="prevImage" class="carousel-button prev">Previous</button>
+          <button :disabled="currentImageIndex === 0" class="carousel-button prev" @click="prevImage">Previous</button>
           <img
             :src="data?.images[currentImageIndex]"
             :alt="`Image ${currentImageIndex + 1} of ${data?.title}`"
             class="product-image"
-          />
+          >
           <button
             :disabled="currentImageIndex === (data?.images.length ?? 0) - 1"
-            @click="nextImage"
             class="carousel-button next"
+            @click="nextImage"
           >
             Next
           </button>
