@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import type { Product} from '~/interfaces/interfaces';
 import { useCart } from '~/interfaces/interfaces'
@@ -7,6 +8,7 @@ const route = useRoute()
 const productId = route.params.id
 const { data, pending, error } = await useFetch<Product>(`https://dummyjson.com/products/${productId}`)
 const { addToCart } = useCart()
+const showToast = ref(false)
 
 const handleAddToCart = () => {
   if (data.value) {
@@ -16,6 +18,10 @@ const handleAddToCart = () => {
       price: data.value.price,
       thumbnail: data.value.thumbnail
     })
+    showToast.value = true
+    setTimeout(() => {
+      showToast.value = false
+    }, 2000)
   }
 }
 </script>
@@ -42,9 +48,13 @@ const handleAddToCart = () => {
         <p class="description">{{ data?.description }}</p>
         <p class="price">Price: ${{ data?.price }}</p>
         <button @click="handleAddToCart">Add to Cart</button>
+        <div v-if="showToast" class="toast">
+          Added to cart!
+        </div>
       </div>
     </section>
   </div>
 </template>
 
 <style scoped src="~/assets/css/ProductDetails.css"></style>
+<style scoped src="~/assets/css/Toast.css"></style>

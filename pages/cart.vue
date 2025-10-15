@@ -19,18 +19,18 @@ const { items, updateQuantity, removeFromCart, totalPrice } = useCart()
       </div>
       <div v-else class="cart-items">
         <div v-for="item in items" :key="item.id" class="cart-item">
-          <img :src="item.thumbnail" :alt="item.title" class="cart-item-image" />
+          <img :src="item.thumbnail" :alt="item.title" class="cart-item-image" >
           <div class="cart-item-details">
             <h3>{{ item.title }}</h3>
             <p>Price: ${{ item.price }}</p>
             <div class="quantity-control">
               <button @click="updateQuantity(item.id, item.quantity - 1)">-</button>
               <input
-                type="number"
                 v-model.number="item.quantity"
-                @input="updateQuantity(item.id, item.quantity)"
+                type="number"
                 min="1"
-              />
+                @input="updateQuantity(item.id, item.quantity)"
+              >
               <button @click="updateQuantity(item.id, item.quantity + 1)">+</button>
             </div>
             <p>Total: ${{ item.price * item.quantity }}</p>

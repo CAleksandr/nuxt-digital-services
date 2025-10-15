@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     '~/assets/css/Catalog.css',
     '~/assets/css/ProductDetails.css',
     '~/assets/css/Cart.css',
-    '~/assets/css/ProductCard.css'
+    '~/assets/css/ProductCard.css',
+    '~/assets/css/Toast.css'
   ]
 })
