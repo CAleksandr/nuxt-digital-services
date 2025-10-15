@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '~/assets/css/Home.css',
     '~/assets/css/Catalog.css',
     '~/assets/css/ProductDetails.css',
-    '~/assets/css/Cart.css'
-  ],
+    '~/assets/css/Cart.css',
+    '~/assets/css/ProductCard.css'
+  ]
 })

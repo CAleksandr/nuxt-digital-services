@@ -2,10 +2,6 @@
 import { useCart } from '~/interfaces/interfaces'
 
 const { items, updateQuantity, removeFromCart, totalPrice } = useCart()
-console.log('Cart items in cart.vue:', items.value)
-watch(items, (newItems) => {
-  console.log('Cart items updated:', newItems)
-}, { deep: true })
 </script>
 
 <template>

@@ -8,21 +8,14 @@ const productId = route.params.id
 const { data, pending, error } = await useFetch<Product>(`https://dummyjson.com/products/${productId}`)
 const { addToCart } = useCart()
 
-console.log('Product data:', data.value)
-
 const handleAddToCart = () => {
-  console.log('Add to Cart clicked, productId:', productId)
   if (data.value) {
-    const productData = {
+    addToCart({
       id: data.value.id,
       title: data.value.title,
       price: data.value.price,
       thumbnail: data.value.thumbnail
-    }
-    console.log('Adding product:', productData)
-    addToCart(productData)
-  } else {
-    console.log('No product data available')
+    })
   }
 }
 </script>
